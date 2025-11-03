@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Minecraft-Like Voxel Game in Browser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body { margin: 0; overflow: hidden; background: #222; }
+    canvas { display: block; }
+    #hud {
+      position: fixed; left: 1em; top: 1em; color: #fff;
+      background: rgba(0,0,0,0.5); padding: 0.5em 1em; border-radius: 8px;
+      z-index: 20; font-family: monospace;
+    }
+    #controls-ui {
+      position: fixed; bottom: 1em; left: 0; right: 0; display: flex;
+      justify-content: center; gap: 1em; z-index: 15;
+      pointer-events: none;
+    }
+    .button {
+      pointer-events: auto;
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      border: 2px solid #fff3;
+      font-size: 1.5em;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    @media (pointer: coarse) {
+      #controls-ui { display: flex; }
+    }
+    @media (pointer: fine) {
+      #controls-ui { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="hud"></div>
+  <div id="controls-ui">
+    <div class="button" id="btn-place">&#128396;</div>
+    <div class="button" id="btn-break">&#128683;</div>
+    <div class="button" id="btn-jump">&#8679;</div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
